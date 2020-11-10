@@ -1,4 +1,5 @@
-<%= form_with(model: meeting, local: true) do |form| %>
+<div class="p-10 bg-white border border-grey-light rounded">
+<%= form_with(model: meeting, local: true, class: "meeting-form") do |form| %>
   <% if meeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
@@ -11,35 +12,32 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+  <h3 class="mb-4">Meeting Information</h3>
+
+  <div class="mb-6">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, class: 'form-control' %>
+  <div class="mb-6">
+    <%= form.label :start_time, class: "label" %>
+    <div class="flex items-center justify-between max-w-md">
+      <%= form.datetime_select :start_time, { start_day: Date.today, start_year: Date.today.year, minute_step: 15 }, { class: "select py-2 px-2 mr-2" } %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time, class: 'form-control' %>
+  <div class="field">
+    <%= form.label :end_time, class: "label" %>
+    <div class="flex items-center justify-between max-w-md">
+      <%= form.datetime_select :end_time, { start_day: Date.today, start_year: Date.today.year, minute_step: 15 }, { class: "select py-2 px-2 mr-2" } %>
+    </div>
   </div>
 
+  <hr class="border" />
 
-  <div class="form-group">
-    <% if meeting.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', meeting, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
+  <%#= render "payment_form" %>
 
-    <%= form.submit class: 'btn btn-primary' %>
+  <%= form.submit class: "btn btn-primary text-base py-3 px-5" %>
 
-    <% if meeting.persisted? %>
-      <%= link_to "Cancel", meeting, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", meetings_path, class: "btn btn-link" %>
-    <% end %>
-  </div>
 <% end %>
+</div>
