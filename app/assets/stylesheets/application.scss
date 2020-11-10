@@ -7,7 +7,9 @@
 @import "bootstrap";
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
+@import "./actiontext.scss";
 
+@import "simple_calendar";
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
   .container {
