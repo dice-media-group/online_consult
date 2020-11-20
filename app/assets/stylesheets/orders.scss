@@ -393,6 +393,12 @@
 
     // iPad landscape
     @media all and (min-width: 1024px) {
+        .cover-image {
+            width: 100vw;
+        }
+        .title {
+            width: 100vw;
+        }
         .order > form {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
