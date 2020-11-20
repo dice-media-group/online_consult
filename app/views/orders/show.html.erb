@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to orders_path, class: 'btn btn-default' do %>
+    All Orders
+  <% end %>
+  <%= link_to edit_order_path(@order), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show order</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Cents:</dt>
+  <dd><%= @order.cents %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @order.user %></dd>
+
+  <dt>Reading:</dt>
+  <dd><%= @order.reading %></dd>
+
+</dl>

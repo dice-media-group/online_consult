@@ -12,6 +12,7 @@
     "expose-loader": "^1.0.1",
     "jquery": "^3.5.1",
     "local-time": "^2.1.0",
+    "moment": "^2.29.1",
     "popper.js": "^1.16.1",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",
