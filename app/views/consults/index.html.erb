@@ -1,0 +1,53 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Consults</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_consult_path, class: 'btn btn-primary' do %>
+    Add New Consult
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Title</th>
+            <th>Description</th>
+            <th>Minutes per meeting</th>
+            <th>Token</th>
+            <th>Meeting limit</th>
+            <th>Contact email</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @consults.each do |consult| %>
+        <%= content_tag :tr, id: dom_id(consult), class: dom_class(consult) do %>
+          
+
+                      <td><%= consult.title %></td>
+                      <td><%= consult.description %></td>
+                      <td><%= consult.minutes_per_meeting %></td>
+                      <td><%= consult.token %></td>
+                      <td><%= consult.meeting_limit %></td>
+                      <td><%= consult.contact_email %></td>
+          
+          
+            <td><%= link_to 'Show', consult %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

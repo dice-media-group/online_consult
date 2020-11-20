@@ -1,0 +1,60 @@
+<%= form_with(model: consult, local: true) do |form| %>
+  <% if consult.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(consult.errors.count, "error") %> prohibited this consult from being saved:</h2>
+
+      <ul>
+      <% consult.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sku %>
+    <%= form.text_field :sku, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :minutes_per_meeting %>
+    <%= form.number_field :minutes_per_meeting, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :meeting_limit %>
+    <%= form.number_field :meeting_limit, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contact_email %>
+    <%= form.text_field :contact_email, class: 'form-control' %>
+  </div>
+
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if consult.persisted? %>
+      <%= link_to "Cancel", consult, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", consults_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

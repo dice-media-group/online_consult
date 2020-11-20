@@ -1,0 +1,43 @@
+<div class="page-header">
+  <%= link_to consults_path, class: 'btn btn-default' do %>
+    All Consults
+  <% end %>
+  <%= link_to edit_consult_path(@consult), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <%= link_to new_consult_order_path(@consult), class: 'btn btn-primary' do %>
+    New Order
+  <% end %>
+  <h1>Show consult</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @consult.title %></dd>
+
+  <dt>Images:</dt>
+  <dd><% @consult.images.each do |image| %>
+        <%= link_to image do %>
+          <%= image_tag image, width: "250px" %>
+        <% end %>
+        
+      <% end %>
+
+  </dd>
+
+  <dt>Description:</dt>
+  <dd><%= @consult.description %></dd>
+
+  <dt>Minutes per meeting:</dt>
+  <dd><%= @consult.minutes_per_meeting %></dd>
+
+  <dt>Token:</dt>
+  <dd><%= @consult.token %></dd>
+
+  <dt>Meeting limit:</dt>
+  <dd><%= @consult.meeting_limit %></dd>
+
+  <dt>Contact email:</dt>
+  <dd><%= @consult.contact_email %></dd>
+
+</dl>

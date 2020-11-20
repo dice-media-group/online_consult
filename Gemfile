@@ -76,3 +76,5 @@ gem 'whenever', require: false
 ## app specific
 gem 'simple_calendar', '~> 2.4', '>= 2.4.1'
 gem 'stripe', '~> 5.28'
+ # active_storage for s3 and heroku
+gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1'

@@ -1,14 +1,18 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :consults do
+    resources :orders, shallow: true    
+  end
+  
   resources :meetings do
     resources :comments
   end
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
-    authenticate :user, lambda { |u| u.admin? } do
-      mount Sidekiq::Web => '/sidekiq'
-    end
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
 
   resources :notifications, only: [:index]

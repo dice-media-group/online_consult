@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  minutes_per_meeting: 1
+  token: MyString
+  meeting_limit: 1
+  contact_email: MyString
+
+two:
+  title: MyString
+  description: MyText
+  minutes_per_meeting: 1
+  token: MyString
+  meeting_limit: 1
+  contact_email: MyString

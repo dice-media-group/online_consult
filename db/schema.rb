@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_200244) do
+ActiveRecord::Schema.define(version: 2020_11_17_024733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 2020_11_10_200244) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "consults", force: :cascade do |t|
+    t.string "title"
+    t.integer "minutes_per_meeting"
+    t.string "token"
+    t.integer "meeting_limit"
+    t.string "contact_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "sku"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -83,6 +94,9 @@ ActiveRecord::Schema.define(version: 2020_11_10_200244) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "connect_thru"
+    t.string "guest_email"
+    t.string "connect_thru_ref_number"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
@@ -96,6 +110,16 @@ ActiveRecord::Schema.define(version: 2020_11_10_200244) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "cents"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "token"
+    t.bigint "consult_id", null: false
+    t.string "time_zone"
+    t.index ["consult_id"], name: "index_orders_on_consult_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -132,5 +156,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_200244) do
   add_foreign_key "comments", "meetings"
   add_foreign_key "comments", "users"
   add_foreign_key "meetings", "users"
+  add_foreign_key "orders", "consults"
   add_foreign_key "services", "users"
 end

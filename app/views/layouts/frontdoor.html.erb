@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'shared/head' %>
+    <%= render 'shared/frontdoor/head' %>
   </head>
 
 <body class="<%= controller_name %> <%= action_name %>">    <%= render 'shared/navbar' %>
-    <%= render 'shared/notices' %>
+    <%= render 'shared/frontdoor/notices' %>
 
     <div class="container">
       <%= yield %>
     </div>
 
-    <%= render 'shared/footer' %>
+    <%= render 'shared/frontdoor/footer' %>
   </body>
 </html>
