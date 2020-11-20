@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to orders_path, class: 'btn btn-default' do %>
+  <%= link_to consult_orders_path(@consult), class: 'btn btn-default' do %>
     All Orders
   <% end %>
   <%= link_to edit_order_path(@order), class: 'btn btn-primary' do %>
@@ -12,10 +12,8 @@
   <dt>Cents:</dt>
   <dd><%= @order.cents %></dd>
 
-  <dt>User:</dt>
-  <dd><%= @order.user %></dd>
+  <dt>Consult:</dt>
+  <dd><%= @consult.title %></dd>
 
-  <dt>Reading:</dt>
-  <dd><%= @order.reading %></dd>
 
 </dl>
