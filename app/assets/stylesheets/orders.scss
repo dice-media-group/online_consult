@@ -1,0 +1,458 @@
+// Place all the styles related to the Meetings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// FIX_THIS
+// RENAME THIS FILE TO orders.scss
+// all of these classes should be children to body.order
+
+.orders {
+    // image and description
+
+    .app {
+        background: #f7f9fc;
+        overflow: hidden;
+    }
+
+    .cover {
+        display: grid;
+        max-width: 100vw;
+        height: 40vh;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .cover-image {
+        // width: 100vw;
+        height: 100%;
+        grid-column: 1/-1;
+    }
+
+    .cover .fa {
+        position: absolute;
+        font-size: 144px;
+        left: 50%;
+        top: 150px;
+        color: #f7f9fc;
+        margin-left: -15px;
+        opacity: 0.9;
+    }
+
+    .cover .title,
+    .cover-image {
+        grid-row: 1/3;
+    }
+    .cover .title {
+        grid-column: 1/-1;
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+        bottom: 0;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        background: rgba(2, 7, 33, 0.7);
+        padding: 10px 0;
+        letter-spacing: 0.5px;
+        align-self: end;
+    }
+
+    .cover .title span {
+        display: block;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        padding-top: 5px;
+    }
+
+    .fav {
+        position: relative;
+    }
+
+    .btn {
+        position: absolute;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 35px;
+        margin-top: 2px;
+        margin-left: 15px;
+        background: #ff5349;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2), 0 16px 15px -16px #d24c0f, inset 0 0 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .story {
+        width: 90%;
+        height: auto;
+        background: #fff;
+        margin: 25px auto;
+        padding: 10px 0;
+    }
+
+    .story .title {
+        position: absolute;
+        margin-top: -40px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .story div {
+        display: inline-block;
+    }
+
+    .story .story-icon {
+        width: 20%;
+        text-align: center;
+    }
+
+    .story .story-icon .fa {
+        position: relative;
+        font-size: 10px;
+        top: -14px;
+        padding: 5px 12px 5px 14px;
+        border: 3px solid #ff5349;
+        color: #ff5349;
+        border-radius: 7px;
+        opacity: 0.7;
+    }
+
+    .story .story-icon:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        display: inline-block;
+        background: #fff;
+        position: absolute;
+        margin-top: -14px;
+        margin-left: 34px;
+        border-radius: 100%;
+        z-index: 999;
+    }
+
+    .story .story-icon:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid #ff5349;
+
+        margin-left: -34px;
+        margin-top: 12px;
+        opacity: 0.7;
+    }
+
+    .story .story-text {
+        width: 70%;
+        padding: 0 5%;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+        line-height: 16px;
+    }
+
+    // form input elements
+    .calendar {
+        // max-width: 300px;
+    }
+
+    .order-form {
+        width: 90%;
+        height: auto;
+        background: #fff;
+        margin: 25px auto;
+        padding: 10px 0;
+        grid-area: order-form;
+    }
+
+    .form-group {
+        margin: 4mm;
+        padding: 4mm;
+        background-color: #89cff0;
+        border-radius: 25px;
+    }
+
+    .label {
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+
+    .form-label-subtitle {
+        font-weight: normal;
+    }
+
+    .form-input {
+    }
+
+    // connect-thru question
+    .reveal-if-active {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        font-size: 16px;
+        transform: scale(0.8);
+        transition: 0.5s;
+
+        label {
+            display: block;
+            margin: 0 0 3px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+        }
+
+        input[type="radio"]:checked ~ &,
+        input[type="checkbox"]:checked ~ & {
+            opacity: 1;
+            max-height: 100px;
+            padding: 10px 20px;
+            transform: scale(1);
+            overflow: visible;
+        }
+    }
+
+    form {
+        margin: 20px auto;
+        > div {
+            margin: 0 0 20px 0;
+            label {
+                font-weight: bold;
+            }
+            > div {
+                padding: 5px;
+            }
+        }
+        > h4 {
+            color: green;
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            border-bottom: 2px solid green;
+        }
+        .connect-thru-choice {
+            margin: 0 0 20px 0;
+        }
+    }
+
+    // start calendar
+    $selectColor: #12172d;
+    $invertSelectColor: #fff;
+    $arrowSize: 0.8em;
+    $smallscreen: 768px;
+
+    @mixin small-device {
+        @media (max-width: #{$smallscreen - 1px}) {
+            @content;
+        }
+    }
+
+    body .orders .new {
+        align-items: center;
+        box-sizing: border-box;
+        font-family: "Helvetica", sans-serif;
+        justify-content: center;
+        margin: 0;
+    }
+
+    #calendar {
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-areas:
+            ". header ."
+            "prev inner next";
+    }
+    .calendar-header {
+        grid-area: header;
+        text-align: center;
+        background-color: $selectColor;
+        color: $invertSelectColor;
+        padding: 0.5em;
+        font-size: 2em;
+    }
+    .calendar-left-container {
+        grid-area: prev;
+        .previous-month {
+            margin: auto 0 auto auto;
+        }
+        @include small-device {
+            grid-area: header;
+            margin: auto auto auto 0;
+        }
+    }
+    .calendar-right-container {
+        grid-area: next;
+        .next-month {
+            margin: auto auto auto 0;
+        }
+        @include small-device {
+            grid-area: header;
+            margin: auto 0 auto auto;
+        }
+    }
+    .calendar-inner-container {
+        grid-area: inner;
+    }
+    .calendar-left-container,
+    .calendar-right-container {
+        display: flex;
+    }
+    [class^="calendar-"][class$="-container"] {
+        font-size: 1.2em;
+        > button {
+            font: inherit;
+            line-height: normal;
+            overflow: visible;
+            padding: 0;
+            outline: none;
+            cursor: pointer;
+            border-radius: 100%;
+            &::before {
+                content: "";
+                display: inline-block;
+                height: 0;
+                padding-bottom: 100%;
+                width: 1px;
+            }
+        }
+        [class$="-month"] {
+            display: flex;
+            //margin: auto;
+            border: none;
+            width: $arrowSize * 3;
+            height: $arrowSize * 3;
+            @include small-device {
+                background: none;
+            }
+            transition: background 0.3s, border 0.3s;
+            &:hover {
+                background-color: $selectColor;
+                .arrow {
+                    border-color: $invertSelectColor $invertSelectColor transparent transparent;
+                }
+            }
+            .arrow {
+                text-align: center;
+                margin: auto;
+                border: 0.1em solid $selectColor;
+                border-color: $selectColor $selectColor transparent transparent;
+                @include small-device {
+                    border-color: $invertSelectColor $invertSelectColor transparent transparent;
+                }
+                width: $arrowSize;
+                height: $arrowSize;
+                transform: translate(-25%, 0%) rotate(0.125turn);
+            }
+        }
+        .previous-month .arrow {
+            transform: translate(25%, 0%) rotate(0.625turn);
+        }
+    }
+
+    .calendar-inner-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        width: 100%;
+        @include small-device {
+            width: 100vw;
+        }
+        > * {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 3em;
+            @include small-device {
+                width: 85%;
+            }
+            border: 0.1em solid transparent;
+            margin: 0.2em;
+        }
+        > button {
+            transition: all 0.6s;
+
+            &:hover {
+                background-color: lighten($selectColor, 35);
+            }
+            &.today {
+                border-color: black;
+            }
+            &.selected {
+                background-color: $selectColor;
+                color: $invertSelectColor;
+                cursor: inherit;
+                &.today {
+                    border-color: $invertSelectColor;
+                    box-shadow: 0 0 0 0.1em $selectColor;
+                }
+            }
+        }
+    }
+    // finish calendar
+
+    // iPad landscape
+    @media all and (min-width: 1024px) {
+        .order > form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            column-gap: 0px;
+            row-gap: 0px;
+            grid-template-areas:
+                "meeting connect-thru"
+                "notification-email  payment-details"
+                "submission submission";
+        }
+
+        .calendar {
+            grid-area: calendar;
+        }
+
+        .calendar-header {
+            padding: 0.25em;
+            font-size: 1em;
+        }
+
+        [class^="calendar-"][class$="-container"] {
+            font-size: 0.5em;
+        }
+
+        .meeting {
+            grid-area: meeting;
+        }
+        .timezone {
+            grid-area: timezone;
+        }
+
+        .start-time {
+            grid-area: start-time;
+        }
+
+        .start-time-date {
+            grid-area: start-time-date;
+        }
+        .connect-thru {
+            grid-area: connect-thru;
+        }
+
+        .notification-email {
+            grid-area: notification-email;
+        }
+
+        .payment-details {
+            grid-area: payment-details;
+        }
+
+        .submission {
+            grid-area: submission;
+        }
+    }
+
+    // iPad landscape
+    @media all and (min-width: 1024px) {
+        [class^="calendar-"][class$="-container"] {
+            font-size: 0.6525em;
+        }
+    }
+}
