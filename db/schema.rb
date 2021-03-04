@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_212342) do
+ActiveRecord::Schema.define(version: 2021_03_03_184858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_11_28_212342) do
     t.string "connect_thru"
     t.string "guest_email"
     t.string "connect_thru_ref_number"
+    t.boolean "all_day"
+    t.string "title"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 

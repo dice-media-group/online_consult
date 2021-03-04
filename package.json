@@ -2,6 +2,10 @@
   "name": "online_consult",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^5.5.1",
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/interaction": "^5.5.0",
+    "@fullcalendar/timegrid": "^5.5.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.0.3-4",
     "@rails/activestorage": "^6.0.0",
@@ -14,6 +18,7 @@
     "local-time": "^2.1.0",
     "moment": "^2.29.1",
     "popper.js": "^1.16.1",
+    "stimulus": "^2.0.0",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.12",
