@@ -6,7 +6,13 @@ class MeetingsController < ApplicationController
   # GET /meetings.json
   def index
     if current_user.admin?
-      @meetings = Meeting.all
+      start_time = params[:start]
+      end_time = params[:end]
+      @events = Meeting.where("start_time >= ? AND end_time <= ?", start_time, end_time)
+      @meetings = Meeting.where("start_time >= ? AND end_time <= ?", start_time, end_time)
+  
+      # @events = Meeting.all
+      # @meetings = Meeting.all
     else
       @meetings = current_user.meetings #.where(user_id: current_user)
     end
@@ -36,6 +42,10 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
+        if current_user.admin?
+          format.html { redirect_to backstage_bookings_path, notice: 'Meeting was successfully created.' }
+          format.json { render :show, status: :created, location: @meeting }  
+        end
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
@@ -48,8 +58,25 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
+meeting_params
+    # guard clause for if end_time comes back nil from fullcalendar (yeah, it happens.  FIX: create a fix further upstream)
+    puts "#### meeting_params ###"
+    puts meeting_params
+    mp = OpenStruct.new(meeting_params)
+    puts "end_time is #{mp.end_time}  and its integer value is #{mp.end_time.to_i} "
+    puts "#### meeting_params ###"
+
+    
     respond_to do |format|
       if @meeting.update(meeting_params)
+        if @meeting.end_time.blank?
+          @meeting.end_time = @meeting.start_time + 2.seconds
+          @meeting.save
+        end
+        if current_user.admin?
+          format.html { redirect_to backstage_bookings_path, notice: 'Meeting was successfully updated.' }
+          format.json { render :show, status: :created, location: @meeting }  
+        end
         format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
       else
@@ -64,6 +91,10 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting.destroy
     respond_to do |format|
+      if current_user.admin?
+        format.html { redirect_to backstage_bookings_path, notice: 'Meeting was successfully destroyed.' }
+        format.json { render :show, status: :created, location: @meeting }  
+      end
       format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -77,6 +108,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:name, :start_time, :end_time)
+      params.require(:meeting).permit(:name, :start_time, :end_time, :all_day, :title)
     end
 end

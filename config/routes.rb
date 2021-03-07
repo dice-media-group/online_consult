@@ -1,6 +1,19 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  # get 'backstage/index'
+  resources :backstage, only: [:index]
+  namespace :admin do
+    resources :users
+    resources :announcements
+    resources :comments
+    resources :consults
+    resources :meetings
+    resources :notifications
+    resources :orders
+    resources :services
+    root to: "users#index"
+  end
   resources :consults do
     resources :orders, shallow: true    
   end
@@ -8,8 +21,11 @@ Rails.application.routes.draw do
   resources :meetings do
     resources :comments
   end
+
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/backstage/bookings', to: 'backstage#bookings'
+  get '/backstage/analytics', to: 'backstage#analytics'
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end

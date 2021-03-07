@@ -1,0 +1,74 @@
+<style>
+    .a-booking .title {
+        
+    }
+    .participants {
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .participants .addl-count {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 4px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2px 4px;
+        cursor: pointer;
+        border-radius: 50%;    
+    }
+
+    .a-booking .time-slot {
+
+    }
+
+    .a-booking .tags span {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2px 1px;
+        cursor: pointer;
+        border-radius: 8px;    
+  }
+
+
+</style>
+
+<div class="a-booking">
+    <h6 class="title"><%= meeting.title.to_s %></h6>
+    <p class="time-slot">12:30 - 15:45</p>
+    <div class="tags">
+        <span>category01 </span>&nbsp;
+        <span>category02 </span>
+    </div>
+
+    <div class="participants">
+        <div class="image-stack__item image-stack__item--bottom" >
+            <%= render 'avatar09' %>
+        </div>
+        
+        <div class="image-stack__item image-stack__item--middle" >
+            <%= render 'avatar08' %>
+        </div>
+        <div class="image-stack__item image-stack__item--top" >
+            <span class="addl-count">
+                +3
+            </span>                  
+        </div>
+    </div>
+    <div class="a-booking--links">
+        <%= link_to  "#", title: "edit booking", target: "blank" do %>
+            <i class="fas fa-pen-square"></i>
+        <% end %>&nbsp;
+        <%= link_to  "#", title: "show booking", target: "blank" do %>
+            <i class="fas fa-chevron-circle-right"></i>
+        <% end %>
+    </div>
+</div>

@@ -78,3 +78,5 @@ gem 'simple_calendar', '~> 2.4', '>= 2.4.1'
 gem 'stripe', '~> 5.28'
  # active_storage for s3 and heroku
 gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1'
+# appointment management
+gem 'acts_as_bookable', git: 'https://github.com/captproton/acts_as_bookable'

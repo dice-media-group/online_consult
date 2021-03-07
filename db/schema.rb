@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_024733) do
+ActiveRecord::Schema.define(version: 2021_03_03_184858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,21 @@ ActiveRecord::Schema.define(version: 2020_11_17_024733) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "acts_as_bookable_bookings", force: :cascade do |t|
+    t.string "bookable_type"
+    t.bigint "bookable_id"
+    t.string "booker_type"
+    t.bigint "booker_id"
+    t.integer "amount"
+    t.text "schedule"
+    t.datetime "time_start"
+    t.datetime "time_end"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable"
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker"
   end
 
   create_table "announcements", force: :cascade do |t|
@@ -97,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_024733) do
     t.string "connect_thru"
     t.string "guest_email"
     t.string "connect_thru_ref_number"
+    t.boolean "all_day"
+    t.string "title"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 

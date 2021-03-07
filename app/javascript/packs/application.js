@@ -24,3 +24,5 @@ require("active_storage/direct_uploads");
 // action_text
 require("trix");
 require("@rails/actiontext");
+
+import "controllers"
