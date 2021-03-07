@@ -1,3 +1,130 @@
 // Place all the styles related to the backstage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// $navbar-default-bg: #312312;
+// $light-orange: #ff8c00;
+// $navbar-default-color: $light-orange;
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap";
+@import "jumpstart/sticky-footer";
+@import "jumpstart/announcements";
+@import "./actiontext.scss";
+@import "./direct_uploads.scss";
+
+@import "simple_calendar";
+
+@import "meetings";
+@import "orders";
+// Fixes bootstrap nav-brand container overlap
+@include media-breakpoint-down(xs) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// Masquerade alert shouldn't have a bottom margin
+body > .alert {
+  margin-bottom: 0;
+}
+
+.main-grid {
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+    "overview overview overview sidebar "
+    "bookings bookings bookings sidebar";
+}
+
+.business-overview {
+    grid-area: overview;
+}
+
+.active-bookings {
+    grid-area: bookings;
+
+}
+
+.active-bookings .a-booking {
+    max-width: 36vw;
+}
+.sidebar-right {
+    grid-area: sidebar;
+}
+
+.main-grid ul > li {
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+    zoom:1;
+    *display:inline;
+    /* this fix is needed for IE7- */
+}
+
+.this-year-summary {
+    background: red;
+    margin: 5px;
+    border-radius: 10%;
+    width: 130px;
+    height: 130px;
+}
+
+.flex {
+    display:flex;
+}
+
+.avatar {
+    min-height: 100%;
+}
+
+.a-booking {
+    min-width: 50%;
+}
+
+.a-booking .title {
+    
+}
+.participants {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.participants .addl-count {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 4px;
+    cursor: pointer;
+    border-radius: 50%;    
+}
+
+.a-booking .time-slot {
+
+}
+
+.a-booking .tags span {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 8px;    
+}
+
+.left-and-right {
+    display: grid;
+    grid-template-columns: 100px 1fr 90px;
+}

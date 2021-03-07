@@ -2,6 +2,7 @@ class Meeting < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
+  scope :coming_up, -> { where("start_time > ?", Time.now).order(start_time: :asc).first(2) }
 private
 
 

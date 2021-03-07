@@ -1,0 +1,41 @@
+
+<div class="a-booking">
+    <h6 class="title"><%= booking.title.to_s %></h6>
+    <p class="time-slot">
+        <%= booking.start_time.strftime("%a %I:%m %p").downcase %> - 
+        <%= booking.end_time.strftime("%I:%m %p").downcase %>
+    </p>
+    <div class="tags">
+        <span>category01 </span>&nbsp;
+        <span>category02 </span>
+    </div>
+
+    <div class="left-and-right">
+        <div class="participants" >
+            <div class="image-stack__item image-stack__item--bottom" >
+                <%= render 'avatar09' %>
+            </div>
+            
+            <div class="image-stack__item image-stack__item--middle" >
+                <%= render 'avatar08' %>
+            </div>
+            <div class="image-stack__item image-stack__item--top" >
+                <span class="addl-count">
+                    +3
+                </span>                  
+            </div>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <div class="a-booking--links"  >
+            <%= link_to  "#", title: "edit booking", target: "blank" do %>
+                <i class="fas fa-pen-square fa-2x"></i>
+            <% end %>&nbsp;
+            <%= link_to  "#", title: "show booking", target: "blank" do %>
+                <i class="fas fa-chevron-circle-right fa-2x"></i>
+            <% end %>
+        </div>
+
+    </div>
+</div>

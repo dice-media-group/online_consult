@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
   get '/backstage/bookings', to: 'backstage#bookings'
+  get '/backstage/analytics', to: 'backstage#analytics'
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
