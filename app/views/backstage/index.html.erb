@@ -1,24 +1,28 @@
-
 <div class="main-grid">
     <div class="business-overview">
         <h1>Business Overview</h1>
 
         <ul>
-            <li><h3>Bookings</h3></li>
-            <li><h3>Revenue</h3></li>
+            <li>
+                <h3>Bookings</h3>
+            </li>
+            <li>
+                <h3>Revenue</h3>
+            </li>
         </ul>
         <div class="flex">
             <div class="this-year-summary bookings-count">
                 <span class="big-number">30</span><br>
-                <span class="big-number-description" >Booked so far</span>
+                <span class="big-number-description">Booked so far</span>
             </div>
             <div class="this-year-summary client-count">
                 <span class="big-number">30</span><br>
-                <span class="big-number-description" >clients served</span>
-            </div>        
+                <span class="big-number-description">clients served</span>
+            </div>
         </div>
         <div class="bookings-summary-chart">
-            <img src="https://p248.p4.n0.cdn.getcloudapp.com/items/z8uPR1O8/c0d724e7-bc51-405e-a7d7-40d8380aa850.png?v=2a806ba20cfdaabeb7aecd71077096b2" alt="time chart of bookings">
+            <img src="https://p248.p4.n0.cdn.getcloudapp.com/items/z8uPR1O8/c0d724e7-bc51-405e-a7d7-40d8380aa850.png?v=2a806ba20cfdaabeb7aecd71077096b2"
+                alt="time chart of bookings">
         </div>
 
     </div>
@@ -27,15 +31,15 @@
         <h1>Active Bookings </h1>
         <div class="flex">
 
-            <%= render partial: "/backstage/dashboard/meeting", 
-                collection: @meetings, as: :booking %>
+            <%= render partial: "/backstage/dashboard/meeting" , collection: @meetings, as: :booking %>
         </div>
     </div>
 
-    <div class="sidebar-right bookings-at-a-glance">
-        <img src="https://p248.p4.n0.cdn.getcloudapp.com/items/4gu1GPkb/fd68d858-f9d6-4a8b-8621-7cce503d38d0.png?v=da995d4ef188e7fdb30f4d20f0ef290c" alt="bookings at a glance"
-            style="height:100%;"
-        >
-    </div>
+
 
 </div>
+
+<% content_for :right do %>
+    <img src="https://p248.p4.n0.cdn.getcloudapp.com/items/bLugNLXw/70614568-552f-4654-b34c-ef53127b8f17.png?v=5bcafcef8e0a95ecf5a87c796d53a20b"
+        alt="bookings at a glance" style="width: 300px;">
+    <% end %>

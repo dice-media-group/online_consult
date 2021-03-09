@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= render 'shared/backstage/head' %>
-  </head>
 
-<body class="<%= controller_name %> <%= action_name %>">    <%= render 'shared/backstage/navbar' %>
-    <%= render 'shared/backstage/notices' %>
+<head>
+  <%= render 'shared/backstage/head' %>
+</head>
 
-    <div class="container">
-      <span>lorem</span>
-      <%= yield %>
+<body class="<%= controller_name %> <%= action_name %> ">
+
+  <% if user_masquerade? %>
+    <div class="alert alert-warning text-center">
+      You're logged in as <b>
+        <%= current_user.name %> (<%= current_user.email %>)
+      </b>
+      <%= link_to back_masquerade_path(current_user) do %>
+        <%= icon("fas", "times" ) %> Logout <% end %>
     </div>
+    <% end %>
 
-    <%= render 'shared/backstage/footer' %>
-  </body>
+      <div class="grid-main">
+        <%= render 'shared/backstage/navbar_main' %>
+
+          <div class="navbar-main">
+            <div class="nav-main">
+            </div>
+          </div>
+          <div class="navbar-side partial-border">
+            <%= render 'shared/backstage/navbar_side' %>
+          </div>
+          <main>
+            <div class="container">
+              <%= yield %>
+            </div>
+          </main>
+          <aside>
+            <%= yield :right %>
+          </aside>
+      </div>
+
+      <%= render 'shared/backstage/footer' %>
+</body>
+
 </html>

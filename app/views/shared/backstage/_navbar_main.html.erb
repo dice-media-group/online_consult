@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light navbar-main">
+  <div class="container">
+    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
+      <ul class="navbar-nav main-nav">
+        <li class="nav-item">
+          <%= link_to backstage_index_path,
+            class: "nav-link #{'active font-weight-bold' if current_page?(backstage_index_path)}" do %>
+            <i class="fas fa-tachometer-alt"></i>
+            Dashboard
+            <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to backstage_bookings_path,
+            class: "nav-link #{'active font-weight-bold' if current_page?(backstage_bookings_path)}" do %>
+            <i class="far fa-calendar-alt"></i>
+            Bookings
+            <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to backstage_analytics_path,
+            class: "nav-link #{'active font-weight-bold' if current_page?(backstage_analytics_path)}" do %>
+            <i class="fas fa-chart-line"></i>
+            Analytics
+            <% end %>
+        </li>
+
+      </ul>
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
+        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        </ul>
+
+      </div>
+  </div>
+</nav>

@@ -32,47 +32,64 @@ body > .alert {
   margin-bottom: 0;
 }
 
-.main-grid {
+.grid-main {
     display: grid;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas: 
-    "overview overview overview sidebar "
-    "bookings bookings bookings sidebar";
+      "navbar-main navbar-main navbar-main navbar-side"
+      "main        main        main        aside";
 }
 
-.business-overview {
-    grid-area: overview;
+.navbar-brand {
+  margin-right: 5rem;
 }
 
-.active-bookings {
-    grid-area: bookings;
+.navbar-main {
+    grid-area: navbar-main;
+    display: flex;
+    background: green;
+  }
+  
+  .navbar-side {
+    grid-area: navbar-side;
+    background: #fafaff;
+  }
+  
+  .top-right-rounded {
+    border-top-right-radius: 25px;
+  }
 
-}
-
-.active-bookings .a-booking {
-    max-width: 36vw;
-}
-.sidebar-right {
-    grid-area: sidebar;
-}
-
-.main-grid ul > li {
-    display: inline-block;
-    /* You can also add some margins here to make it look prettier */
-    zoom:1;
-    *display:inline;
-    /* this fix is needed for IE7- */
-}
+  main {
+    grid-area: main;
+    min-height: 300px;
+  }
+  
+  aside {
+    grid-area: aside;
+    background: #fafaff; 
+  }
 
 .this-year-summary {
-    background: red;
+    background: grey;
     margin: 5px;
     border-radius: 10%;
     width: 130px;
     height: 130px;
 }
 
+.bookings-count {
+  background: #9088d2;
+}
+
+.client-count {
+  background: #f89380;
+}
+
+.big-number {
+  font-size: 3rem;
+  font-weight: 500;
+}
 .flex {
     display:flex;
 }
@@ -127,4 +144,28 @@ body > .alert {
 .left-and-right {
     display: grid;
     grid-template-columns: 100px 1fr 90px;
+}
+
+// fancy underline navigation bar
+.partial-border {
+  position: relative;
+  display: inline-block;
+}
+.partial-border:before {
+  content: '';
+  border-bottom: 1px solid #e0e1f3;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 0;
+}
+
+// main nav
+.active {
+  color: #593eff !important;
+}
+
+.nav-item a {
+	display: block;
+	padding: 0.5rem 1rem;
 }
