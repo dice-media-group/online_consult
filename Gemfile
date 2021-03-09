@@ -30,13 +30,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -51,7 +51,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'administrate', github: 'excid3/administrate', branch: 'jumpstart'
 gem 'bootstrap', '~> 4.5'
@@ -76,7 +76,10 @@ gem 'whenever', require: false
 ## app specific
 gem 'simple_calendar', '~> 2.4', '>= 2.4.1'
 gem 'stripe', '~> 5.28'
- # active_storage for s3 and heroku
+# active_storage for s3 and heroku
 gem 'aws-sdk-s3', '~> 1.84', '>= 1.84.1'
 # appointment management
 gem 'acts_as_bookable', git: 'https://github.com/captproton/acts_as_bookable'
+# working in vscode
+gem 'rubocop', group: :development
+gem 'solargraph', '~> 0.40.4', group: :development
