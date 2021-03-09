@@ -1,0 +1,52 @@
+
+  .table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      background-color: transparent;
+  }
+  
+  thead {
+      border-bottom-color: rgb(128, 128, 128);
+      border-collapse: collapse;
+      border-left-color: rgb(128, 128, 128);
+      border-right-color: rgb(128, 128, 128);
+      border-top-color: rgb(128, 128, 128);
+      box-sizing: border-box;
+      color: rgb(33, 37, 41);
+      display: table-header-group;
+      font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      height: 50px;
+      line-height: 24px;
+      text-size-adjust: 100%;
+      vertical-align: middle;
+      width: 725px;
+      -webkit-border-horizontal-spacing: 2px;
+      -webkit-border-vertical-spacing: 2px;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  tr {
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+  }
+  
+  tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+  }
+  
+  th {
+      text-align: left;
+  }
+  
+  .table td, .table th {
+      padding: .3rem;
+      vertical-align: top;
+      border-top: 1px solid #e9ecef;
+  }
+  
