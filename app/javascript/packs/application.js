@@ -25,4 +25,22 @@ require("active_storage/direct_uploads");
 require("trix");
 require("@rails/actiontext");
 
+// stimulus.js
 import "controllers"
+
+// vue.js
+import Vue from 'vue/dist/vue.esm'
+import TurbolinksAdapter from 'vue-turbolinks';
+import App from '../app.vue'
+
+Vue.use(TurbolinksAdapter)
+
+// components
+Vue.component('app', App)
+
+// wrap CRUD pages in vue
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '[data-behavior="vue"]',
+  })
+})

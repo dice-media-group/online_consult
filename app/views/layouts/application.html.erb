@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= render 'shared/head' %>
-  </head>
 
-<body class="<%= controller_name %> <%= action_name %>">    <%= render 'shared/navbar' %>
+<head>
+  <%= render 'shared/head' %>
+</head>
+
+<body class="<%= controller_name %> <%= action_name %>">
+  <%= render 'shared/navbar' %>
     <%= render 'shared/notices' %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+      <div class="container" data-behavior="vue">
+        <%= yield %>
+          <app></app>
+      </div>
 
-    <%= render 'shared/footer' %>
-  </body>
+      <%= render 'shared/footer' %>
+</body>
+
 </html>
