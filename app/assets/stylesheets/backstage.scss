@@ -55,13 +55,24 @@ aside {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas: 
-  "overview         promotional          presently"
-  "overview         promotional          presently"
+  "heading         heading              heading"
+  "summary         promotional          presently"
+  "summary         promotional          presently"
   "active-bookings  active-bookings   active-bookings";      
 
+  .heading {
+    grid-area: heading;
+
+  
+  }
 }
-.business-overview {
-  grid-area: overview;
+.summary {
+  grid-area: summary;
+
+  a {
+    text-decoration: none;
+    color: currentColor;
+  }
 }
 .promotional {
   grid-area: promotional;
@@ -226,12 +237,20 @@ aside {
   grid-template-areas: 
     "heading heading link";
 
-  h1 {
+  .heading {
     grid-area: heading;
   }
 
-  a {
+  .link {
     grid-area: link;
+    margin-top: auto;
+    margin-left: auto;
 
+    font-size: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: currentColor;
+    }
   }
 }
