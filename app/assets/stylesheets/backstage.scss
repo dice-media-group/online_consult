@@ -36,9 +36,68 @@ body > .alert {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas: 
-      "navbar-main navbar-main navbar-main navbar-side"
-      "main        main        main        aside";
+      "navbar-main navbar-main navbar-main            navbar-side"
+      "main        main        main                   aside";      
 }
+
+main {
+  grid-area: main;
+  min-height: 300px;
+}
+
+aside {
+  grid-area: aside;
+  background: #fafaff; 
+}
+
+.grid-index {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: 
+  "overview         promotional          presently"
+  "overview         promotional          presently"
+  "active-bookings  active-bookings   active-bookings";      
+
+}
+.business-overview {
+  grid-area: overview;
+}
+.promotional {
+  grid-area: promotional;
+}
+.promotional img {
+  max-width: 100%;
+}
+
+.presently {
+  grid-area: presently;
+  display: flex;
+  flex-direction: column;
+
+  .earnings {
+    max-height: 67%;
+  }
+
+  .earnings img {
+    height: 67%;
+  }
+
+  .current-meetings img {
+    height: 33%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.active-bookings {
+  grid-area: active-bookings;
+  min-height: 300px;
+
+}
+
 
 .navbar-brand {
   margin-right: 5rem;
@@ -59,15 +118,6 @@ body > .alert {
     border-top-right-radius: 25px;
   }
 
-  main {
-    grid-area: main;
-    min-height: 300px;
-  }
-  
-  aside {
-    grid-area: aside;
-    background: #fafaff; 
-  }
 
 .this-year-summary {
     background: grey;
@@ -167,4 +217,21 @@ body > .alert {
 .nav-item a {
 	display: block;
 	padding: 0.5rem 1rem;
+}
+
+.heading-and-link {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: 
+    "heading heading link";
+
+  h1 {
+    grid-area: heading;
+  }
+
+  a {
+    grid-area: link;
+
+  }
 }

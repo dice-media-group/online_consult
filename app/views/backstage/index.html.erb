@@ -1,13 +1,19 @@
-<div class="main-grid">
+<div class="grid-index">
     <div class="business-overview">
         <h1>Business Overview</h1>
 
-        <ul>
-            <li>
-                <h3>Bookings</h3>
+        <ul class="navbar-expand-md navbar-nav">
+
+            <li class="nav-item">
+                <a href="#" class="active font-weight-bold">
+                    <h3>Bookings</h3>
+                </a>
             </li>
-            <li>
-                <h3>Revenue</h3>
+            <li class="nav-item">
+                <a href="#" class="active">
+                    <h3>Revenue</h3>
+
+                </a>
             </li>
         </ul>
         <div class="flex">
@@ -27,8 +33,26 @@
 
     </div>
 
+    <div class="promotional">
+        <%= image_tag("Promotional.png") %>
+        
+    </div>
+
+    <div class="presently">
+        <div class="earnings">
+            <%= image_tag("todays_earnings.png") %>
+        </div>
+        <div class="current-meetings">
+            <%= image_tag("current_meeting.png") %>
+        </div>
+
+    </div>
+
     <div class="active-bookings">
-        <h1>Active Bookings </h1>
+        <div class="heading-and-link">
+            <h1>Active Bookings </h1>
+            <a href="#">View all ></a>
+        </div>
         <div class="flex">
 
             <%= render partial: "/backstage/dashboard/meeting" , collection: @meetings, as: :booking %>
