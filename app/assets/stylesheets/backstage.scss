@@ -254,3 +254,51 @@ aside {
     }
   }
 }
+
+// simple_calendar styles
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+  }
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+
+  // calendar headings
+  .calendar-heading {
+    display: flex;
+
+    .links a {
+      color: currentColor;
+      font-size: 36px;
+      margin-left: auto;
+      margin-top: auto;
+    }
+
+    .calendar-title {
+      margin: auto auto auto 0;
+      font-weight: bolder;
+    }
+  }
+
+  a {
+    color: orangered;
+
+  }
+}
