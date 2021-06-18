@@ -31,12 +31,8 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
-                <% passed_block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
-            <% end %>
+            <%= link_to day.strftime("%d"), controller: "backstage" , action: "bookings", id: day, start_date: day %>
+          <% end %>
           <% end %>
         </tr>
         <% end %>
