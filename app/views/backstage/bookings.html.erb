@@ -1,20 +1,20 @@
 <h1>bookings</h1>
 <%# show divs need classes to toggle visibility %>
-<div class="show_month">
+<div class="show-month">
   <%= month_calendar do |date| %>
     <%= date %>
   <% end %>
 </div>
 <hr>
 
-<div class="show_week">
+<div class="show-week" style="display:none">
   <%= week_calendar(number_of_weeks: 1) do |date| %>
     <%= date %>
   <% end %>
 </div>
 <hr>
 
-<div class="show_day">
+<div class="show-day">
   <%= calendar(number_of_days: 1) do |date| %>
     <%= date %>
   <% end %>

@@ -262,6 +262,10 @@ aside {
 
   }
 
+  ul {
+    list-style: none;
+  }
+
   .day {
     height: 40px;
     a {
@@ -302,8 +306,12 @@ aside {
   .past {}
   .future {}
 
-  .start-date {}
+  .start-date {
+    background: #f89380;
+  }
 
+
+  }
   .prev-month {
     color: #b8b6bf;
     background: #f8f7fe;
@@ -332,5 +340,25 @@ aside {
       font-weight: bolder;
     }
   }
+
+  // day calendar
+.show-day .simple-calendar {
+  .start-date {
+  background: #f8f7fe;
+  }
+
+  .meetings {
+    li {
+      display: flex;
+    }
+
+    i {
+      margin: 10px 10px 10px 0px;
+    }
+    div {
+      margin: 10px 10px 10px 0px;
+    }
+  }
+
 
 }
