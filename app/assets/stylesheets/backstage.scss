@@ -342,7 +342,7 @@ aside {
   }
 
   // day calendar
-.show-day .simple-calendar {
+.show-day {
   .start-date {
   background: #f8f7fe;
   }
@@ -358,6 +358,10 @@ aside {
     div {
       margin: 10px 10px 10px 0px;
     }
+    .time-block {
+      margin-left: auto
+    }
+  
   }
 
 
