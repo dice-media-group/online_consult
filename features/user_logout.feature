@@ -9,6 +9,9 @@ Feature: Can log out of the site
     And I navigate to the index page
 
   Scenario: user can log out
-    When I click on "Sign out"
-    Then I should see the text "Signed out successfully."
-    And I should be on the index page
+    # When I click on "Sign out"
+    When I follow image link "dropdown-toggle"
+    And I should see the text "Logout"
+    And I click on "Logout"
+    Then I should be on the index page
+    And I should see the text "Signed out successfully"
