@@ -65,13 +65,13 @@ class MeetingRoomsController < ApplicationController
       begin
         current_user.book! room, time: slot_to_book, amount: 1
         flash[:notice] = "You have a booking #{slot.to_formatted_s(:short)}. Smell the rainbows!"
-        redirect_to root_path
+        redirect_to meeting_rooms_path
       rescue ActsAsBookable::AvailabilityError => e
-        redirect_to root_path, notice: e.message.underscore.humanize
+        redirect_to meeting_rooms_path, notice: e.message.underscore.humanize
       end
     else
       flash[:alert] = 'You may only have two active bookings.'
-      redirect_to root_path
+      redirect_to meeting_rooms_path
     end
   end
 
@@ -79,7 +79,7 @@ class MeetingRoomsController < ApplicationController
     active_booking = current_user.bookings.detect { |booking| booking.time == Time.zone.parse(params[:time]) }
     active_booking.delete
     flash[:notice] = 'You have successfully cancelled your booking.'
-    redirect_to root_path
+    redirect_to meeting_rooms_path
   end
 
   private

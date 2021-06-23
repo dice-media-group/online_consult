@@ -23,6 +23,6 @@ Feature: user should be able to book time in meeting room
   Scenario: User tries to book 3 slots
     Given user visits the booking page
     And I click on calendar link "02 Sep 08:00"
-    And I click on calendar link "03 Sep 08:00"
+    And I click on calendar link "04 Sep 13:00"
     And I click on calendar link "04 Sep 08:00"
     Then I should see the text "You may only have two active bookings."

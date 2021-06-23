@@ -5,7 +5,7 @@ Feature: As a user
   Scenario: User provides valid credentials
     Given I navigate to the index page
     And I click on "Sign Up"
-    And I fill in "Email" with "unicorn@test.com"
+    And I fill in "Email Address" with "unicorn@test.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I click on "Sign up"
@@ -14,7 +14,7 @@ Feature: As a user
   Scenario: User fails to provide email
     Given I navigate to the index page
     And I click on "Sign Up"
-    And I fill in "Email" with ""
+    And I fill in "Email Address" with ""
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I click on "Sign up"
@@ -23,7 +23,7 @@ Feature: As a user
   Scenario: User fails to confirm password
     Given I navigate to the index page
     And I click on "Sign Up"
-    And I fill in "Email" with "unicorn@test.com"
+    And I fill in "Email Address" with "unicorn@test.com"
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "wrong pass"
     And I click on "Sign up"
