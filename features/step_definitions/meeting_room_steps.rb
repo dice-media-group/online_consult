@@ -2,6 +2,10 @@ Given(/^user visits the booking page$/) do
   visit meeting_rooms_path
 end
 
+Given('I navigate to the meetings page') do
+  visit meeting_rooms_path
+end
+
 Given(/^I see a list of available times$/) do
   expect(page).to have_content
 end
