@@ -35,11 +35,16 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  gem 'guard', '~> 2.17'
+  gem 'guard-bundler', '~> 3.0'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   gem 'launchy'
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rspec-timecop'
   gem 'shoulda-matchers'
+  gem 'terminal-notifier', '~> 2.0'
+  gem 'terminal-notifier-guard', '~> 1.7'
 end
 
 group :development do
