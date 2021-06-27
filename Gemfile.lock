@@ -245,6 +245,9 @@ GEM
       guard (~> 2.2)
       guard-compat (~> 1.1)
     guard-compat (1.2.1)
+    guard-cucumber (3.0.0)
+      cucumber (>= 3.1)
+      nenv (>= 0.1)
     guard-rspec (4.7.3)
       guard (~> 2.1)
       guard-compat (~> 1.1)
@@ -590,6 +593,7 @@ DEPENDENCIES
   friendly_id (~> 5.3)
   guard (~> 2.17)
   guard-bundler (~> 3.0)
+  guard-cucumber (~> 3.0)
   guard-rspec (~> 4.7, >= 4.7.3)
   image_processing
   jbuilder (~> 2.7)

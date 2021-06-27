@@ -45,6 +45,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'terminal-notifier', '~> 2.0'
   gem 'terminal-notifier-guard', '~> 1.7'
+  gem 'guard-cucumber', '~> 3.0'
 end
 
 group :development do
