@@ -1,0 +1,2 @@
+module Backstage::BookingsHelper
+end
