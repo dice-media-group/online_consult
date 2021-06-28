@@ -12,3 +12,13 @@ And(/^there is a user logged in$/) do
   @user = FactoryBot.create(:user)
   login_as @user, scope: :user
 end
+
+And(/^Heather is logged in$/) do
+  @user = FactoryBot.create(:user)
+  login_as @user, scope: :user
+end
+
+And(/^Gary is logged in$/) do
+  @user = FactoryBot.create(:user)
+  login_as @user, scope: :user
+end

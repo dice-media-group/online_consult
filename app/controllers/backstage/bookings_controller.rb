@@ -1,4 +1,5 @@
 class Backstage::BookingsController < ApplicationController
+  layout 'backstage'
   before_action :set_meeting_room, only: %i[show edit update destroy]
 
   # GET /meeting_rooms or /meeting_rooms.json

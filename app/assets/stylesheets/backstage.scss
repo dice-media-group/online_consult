@@ -256,62 +256,63 @@ aside {
 }
 
 // simple_calendar styles
-.simple-calendar {
-  a {
-    color: currentColor;
-
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  .day {
-    height: 40px;
+.backstage, bookings {
+  .simple-calendar {
     a {
-      font-size: 0.75rem;
-      display:inline-block;
-      width:100%;
-      height:100%;    
+      color: currentColor;
+
     }
 
-    a:link { text-decoration: none; }
-    a:visited { text-decoration: none; }
-    a:hover { text-decoration: none; }
-    a:active { text-decoration: none; }
-  }
-
-  .wday-name {
-    color: #b8b6bf;
-  }
-  .wday-0 {
-  }
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
-
-  
-  .current-month {
-    background: #f8f7fe;
-  }
-  .today {
-    background: #9088d2;
-    a {
-      color: white;
+    ul {
+      list-style: none;
     }
-  }
-  .past {}
-  .future {}
 
-  .start-date {
-    background: #f89380;
-  }
+    .day {
+      height: 40px;
+      a {
+        font-size: 0.75rem;
+        display:inline-block;
+        width:100%;
+        height:100%;    
+      }
+
+      a:link { text-decoration: none; }
+      a:visited { text-decoration: none; }
+      a:hover { text-decoration: none; }
+      a:active { text-decoration: none; }
+    }
+
+    .wday-name {
+      color: #b8b6bf;
+    }
+    .wday-0 {
+    }
+    .wday-1 {}
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {}
+
+    
+    .current-month {
+      background: #f8f7fe;
+    }
+    .today {
+      background: #9088d2;
+      a {
+        color: white;
+      }
+    }
+    .past {}
+    .future {}
+
+    .start-date {
+      background: #f89380;
+    }
 
 
-  }
+    }
   .prev-month {
     color: #b8b6bf;
     background: #f8f7fe;
@@ -323,6 +324,29 @@ aside {
   .current-month {}
 
   .has-events {}
+
+  .booking-slots {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .booked-spot {
+    background:chocolate;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin: 1px;
+    
+    }
+
+  .spot {
+      width: 5px;
+      height: 5px;
+      background: currentColor;
+      // border-radius: 50%
+  }
+
+}
 
   // calendar headings
   .calendar-heading {
