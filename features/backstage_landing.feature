@@ -1,8 +1,8 @@
 Feature: Host can go to landing page
     As a host
     In order to book meeting time
-    I would like to be able to go to the index page of backstage for MeetingTime
+    Heather would like to be able to go to the index page of backstage for managing her bookings
 
     Scenario:
-        Given I navigate to the index page of backstage
-        Then I should see the text "Welcome"
+        Given Heather navigates to the backstage index page
+        Then she should see the text "Business Overview"
