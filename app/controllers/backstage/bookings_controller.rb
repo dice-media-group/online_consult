@@ -4,8 +4,9 @@ class Backstage::BookingsController < ApplicationController
 
   # GET /meeting_rooms or /meeting_rooms.json
   def index
-    @meeting_rooms = MeetingRoom.all
-    @meeting_room = MeetingRoom.first
+    @meeting_rooms        = MeetingRoom.all
+    @meeting_room         = MeetingRoom.first
+    @next_twelve_months   = Booking.new.next_twelve_months(params[:start_date] || Date.today.to_s)
   end
 
   # GET /meeting_rooms/1 or /meeting_rooms/1.json

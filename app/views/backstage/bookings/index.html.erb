@@ -14,25 +14,25 @@
                             @click.prevent="setActive('home')"
                             :class="{ active: isActive('home') }"
                             href="#home"
-                            >Home</a
+                            >Week</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
                             class="nav-link"
-                            @click.prevent="setActive('profile')"
-                            :class="{ active: isActive('profile') }"
-                            href="#profile"
-                            >Profile</a
+                            @click.prevent="setActive('month')"
+                            :class="{ active: isActive('month') }"
+                            href="#month"
+                            >Month</a
                           >
                         </li>
                         <li class="nav-item">
                           <a
                             class="nav-link"
-                            @click.prevent="setActive('contact')"
-                            :class="{ active: isActive('contact') }"
-                            href="#contact"
-                            >Contact</a
+                            @click.prevent="setActive('year')"
+                            :class="{ active: isActive('year') }"
+                            href="#year"
+                            >Year</a
                           >
                         </li>
                       </ul>
@@ -42,25 +42,39 @@
                           :class="{ 'active show': isActive('home') }"
                           id="home"
                         >
-                          RAils home content
-                            <%#= render week_calendar %>
+                            <% @meeting_rooms.each do |room| %>
+                                <%= week_calendar do |date| %>
+                                    <%= date.day %>
 
+                                <% end %>
+                            <% end %>
                         </div>
                         <div
                           class="tab-pane fade"
-                          :class="{ 'active show': isActive('profile') }"
-                          id="profile"
+                          :class="{ 'active show': isActive('month') }"
+                          id="month"
                         >
-                          Profile content
-                    <%#= render month_calendar %>
+                            <% @meeting_rooms.each do |room| %>
+                                <%= month_calendar do |date| %>
+                                    <%= date.day %>
+
+                                <% end %>
+                            <% end %>
                         </div>
                         <div
                           class="tab-pane fade"
-                          :class="{ 'active show': isActive('contact') }"
-                          id="contact"
+                          :class="{ 'active show': isActive('year') }"
+                          id="year"
                         >
-                          Contact content
-                          <%#= render year_calendar %>
+                            <div class="upcoming-months">
+                          <% @next_twelve_months.each do |month| %>
+                                <div class="month">
+                                    <%= link_to  month[0], backstage_bookings_path(start_date: month[1]) %>                                
+                                </div>
+                          <% end %>
+                            
+                            </div>
+
                         </div>
                       </div>
                     </div>
@@ -73,18 +87,6 @@
 
         </span>
 
-        <%# consider using calendar-heading with links instead of these buttons %>
-            <div class="btn-group btn-group-toggle week-month-year" data-toggle="buttons">
-                <label class="btn btn-outline-primary btn-toggle active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
-                </label>
-                <label class="btn btn-outline-primary btn-toggle">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Month
-                </label>
-                <label class="btn btn-outline-primary btn-toggle">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> Year
-                </label>
-            </div>
 
             <%# consider using calendar-heading with links instead of these buttons %>
                 <div class="btn-group prev-today-next" role="group" aria-label="navigation to previous today  next">
