@@ -1,35 +1,105 @@
 <div class="grid-bookings-index">
     <div class="heading">
+        <div class="tab-panel">
+            <tab_panel inline-template>
+                <div id="tab-panels">
+                    <div class="container">
+                      <h2>Tabs in Rails Vue.js:</h2>
+                      <br />
+                
+                      <ul class="nav nav-tabs nav-justified">
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            @click.prevent="setActive('home')"
+                            :class="{ active: isActive('home') }"
+                            href="#home"
+                            >Home</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            @click.prevent="setActive('profile')"
+                            :class="{ active: isActive('profile') }"
+                            href="#profile"
+                            >Profile</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            class="nav-link"
+                            @click.prevent="setActive('contact')"
+                            :class="{ active: isActive('contact') }"
+                            href="#contact"
+                            >Contact</a
+                          >
+                        </li>
+                      </ul>
+                      <div class="tab-content py-3" id="myTabContent">
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('home') }"
+                          id="home"
+                        >
+                          RAils home content
+                            <%#= render week_calendar %>
+
+                        </div>
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('profile') }"
+                          id="profile"
+                        >
+                          Profile content
+                    <%#= render month_calendar %>
+                        </div>
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('contact') }"
+                          id="contact"
+                        >
+                          Contact content
+                          <%#= render year_calendar %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+            </tab_panel>
+        </div>
         <span class="month-year">
             September, 2020
+
         </span>
 
-<%# consider using calendar-heading with links instead of these buttons %>
-        <div class="btn-group btn-group-toggle week-month-year" data-toggle="buttons">
-            <label class="btn btn-outline-primary btn-toggle active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
-            </label>
-            <label class="btn btn-outline-primary btn-toggle">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Month
-            </label>
-            <label class="btn btn-outline-primary btn-toggle">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Year
-            </label>
-        </div>
+        <%# consider using calendar-heading with links instead of these buttons %>
+            <div class="btn-group btn-group-toggle week-month-year" data-toggle="buttons">
+                <label class="btn btn-outline-primary btn-toggle active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
+                </label>
+                <label class="btn btn-outline-primary btn-toggle">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Month
+                </label>
+                <label class="btn btn-outline-primary btn-toggle">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> Year
+                </label>
+            </div>
 
-<%# consider using calendar-heading with links instead of these buttons %>
-        <div class="btn-group prev-today-next" role="group" aria-label="navigation to previous today  next">
-            <button type="button" class="btn btn-secondary previous" style="margin-right: 5px" > < </button>
-            <button type="button" class="btn btn-secondary today">Today</button>
-            <button type="button" class="btn btn-secondary next" style="margin-left: 5px"> > </button>
-        </div>
+            <%# consider using calendar-heading with links instead of these buttons %>
+                <div class="btn-group prev-today-next" role="group" aria-label="navigation to previous today  next">
+                    <button type="button" class="btn btn-secondary previous" style="margin-right: 5px">
+                        < </button>
+                            <button type="button" class="btn btn-secondary today">Today</button>
+                            <button type="button" class="btn btn-secondary next" style="margin-left: 5px"> > </button>
+                </div>
 
     </div>
     <div class="calendar">
-            <img src="/images/sketch/calendar-month.png" alt="cal-navigation" style="width: 90%">
+        <img src="/images/sketch/calendar-month.png" alt="cal-navigation" style="width: 90%">
 
     </div>
-<!-- <h1>all bookings</h1>
+    <!-- <h1>all bookings</h1>
 <ul class="room_bookings">
 <% @meeting_rooms.each do |room| %>
     <div style="height: 5px; background-color: #EAEFF5"></div>
@@ -114,9 +184,7 @@
 </div>
 
 <% content_for :right do %>
-        <%= render "minical" %>
-    <img src="/images/sketch/calendar-next-meeting.png"
-        alt="bookings next meeting" style="width: 300px;">
-    <img src="/images/sketch/calendar-categories.png"
-        alt="booking categories" style="width: 300px;">
-<% end %>
+    <%= render "minical" %>
+        <img src="/images/sketch/calendar-next-meeting.png" alt="bookings next meeting" style="width: 300px;">
+        <img src="/images/sketch/calendar-categories.png" alt="booking categories" style="width: 300px;">
+        <% end %>
