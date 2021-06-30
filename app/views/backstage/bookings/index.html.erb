@@ -3,8 +3,30 @@
         <span class="month-year">
             September, 2020
         </span>
-        <img src="/images/sketch/calendar-prev-today-next.png
-        " alt="cal-navigation">
+
+<%# consider using calendar-heading with links instead of these buttons %>
+        <div class="btn-group btn-group-toggle week-month-year" data-toggle="buttons">
+            <label class="btn btn-outline-primary btn-toggle active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
+            </label>
+            <label class="btn btn-outline-primary btn-toggle">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Month
+            </label>
+            <label class="btn btn-outline-primary btn-toggle">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Year
+            </label>
+        </div>
+
+<%# consider using calendar-heading with links instead of these buttons %>
+        <div class="btn-group prev-today-next" role="group" aria-label="navigation to previous today  next">
+            <button type="button" class="btn btn-secondary previous" style="margin-right: 5px" > < </button>
+            <button type="button" class="btn btn-secondary today">Today</button>
+            <button type="button" class="btn btn-secondary next" style="margin-left: 5px"> > </button>
+        </div>
+
+    </div>
+    <div class="calendar">
+            <img src="/images/sketch/calendar-month.png" alt="cal-navigation" style="width: 90%">
 
     </div>
 <!-- <h1>all bookings</h1>
@@ -92,6 +114,9 @@
 </div>
 
 <% content_for :right do %>
-    <img src="https://p248.p4.n0.cdn.getcloudapp.com/items/bLugNLXw/70614568-552f-4654-b34c-ef53127b8f17.png?v=5bcafcef8e0a95ecf5a87c796d53a20b"
-        alt="bookings at a glance" style="width: 300px;">
+        <%= render "minical" %>
+    <img src="/images/sketch/calendar-next-meeting.png"
+        alt="bookings next meeting" style="width: 300px;">
+    <img src="/images/sketch/calendar-categories.png"
+        alt="booking categories" style="width: 300px;">
 <% end %>

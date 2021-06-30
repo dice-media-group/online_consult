@@ -73,13 +73,17 @@ aside {
   grid-row-gap: 0px;
   grid-template-areas: 
   "heading         heading              heading"
-  "summary         promotional          presently"
-  "summary         promotional          presently"
-  "active-bookings  active-bookings   active-bookings";      
+  "calendar         calendar          calendar"
+  "calendar         calendar          calendar";
 
   .heading {
     grid-area: heading;
   }
+
+  .calendar {
+    grid-area: calendar;
+  }
+
 }
 .summary {
   grid-area: summary;
@@ -271,7 +275,7 @@ aside {
 }
 
 // simple_calendar styles
-.backstage, bookings {
+.backstage, .bookings {
   .simple-calendar {
     a {
       color: currentColor;
