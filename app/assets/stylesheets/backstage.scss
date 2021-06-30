@@ -66,6 +66,21 @@ aside {
   
   }
 }
+
+.grid-bookings-index {
+  display: grid;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas: 
+  "heading         heading              heading"
+  "summary         promotional          presently"
+  "summary         promotional          presently"
+  "active-bookings  active-bookings   active-bookings";      
+
+  .heading {
+    grid-area: heading;
+  }
+}
 .summary {
   grid-area: summary;
 
