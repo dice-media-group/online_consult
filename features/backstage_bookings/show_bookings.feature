@@ -2,7 +2,7 @@
 Feature: Host can see a list of their meeting bookings
   As a host
   In order to go to a meeting
-  I would like to be able to see when I have booked time
+  Heather would like to be able to see when I have booked time
 
   Background:
     Given time is frozen at 2017-09-01

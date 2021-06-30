@@ -1,8 +1,8 @@
-Given(/^Heather visits the booking page$/) do
+Given('Heather visits the booking page') do
   visit backstage_bookings_path
 end
 
-Given('Heather navigates to the  bookings page') do
+Given('Heather navigates to the bookings page') do
   visit backstage_bookings_path
 end
 
