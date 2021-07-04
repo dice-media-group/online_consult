@@ -1,122 +1,78 @@
 <div class="grid-bookings-index">
     <div class="heading">
         <span class="month-year">
-            September, 2020
+            <%# Heading here %>
         </span>
 
-<%# consider using calendar-heading with links instead of these buttons %>
-        <div class="btn-group btn-group-toggle week-month-year" data-toggle="buttons">
-            <label class="btn btn-outline-primary btn-toggle active">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
-            </label>
-            <label class="btn btn-outline-primary btn-toggle">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Month
-            </label>
-            <label class="btn btn-outline-primary btn-toggle">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Year
-            </label>
-        </div>
 
-<%# consider using calendar-heading with links instead of these buttons %>
-        <div class="btn-group prev-today-next" role="group" aria-label="navigation to previous today  next">
-            <button type="button" class="btn btn-secondary previous" style="margin-right: 5px" > < </button>
-            <button type="button" class="btn btn-secondary today">Today</button>
-            <button type="button" class="btn btn-secondary next" style="margin-left: 5px"> > </button>
-        </div>
 
     </div>
     <div class="calendar">
-            <img src="/images/sketch/calendar-month.png" alt="cal-navigation" style="width: 90%">
+                <tab_panel inline-template>
+                <div id="tab-panels">
+                    <div class="container">
+                        <div class="calhead" style="display:flex;">
+                        </div>
+                      <div class="tab-content py-3" id="myTabContent">
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('home') }"
+                          id="home"
+                        >
+                            <% @meeting_rooms.each do |room| %>
+                                <%= week_calendar(partial: '/backstage/bookings/week/week_calendar_bookings') do |date| %>                                
+                                    <%= date.day %>
+                                <% end %>
+
+                            <% end %>
+                        </div>
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('month') }"
+                          id="month"
+                        >
+                            <% @meeting_rooms.each do |room| %>
+                            <%= month_calendar(partial: '/backstage/bookings/month/calendar') do |date, slots| %>
+                                <%#= date.day %>
+                                <%= link_to date.day, backstage_bookings_path(:start_date=> date) %>
+
+                                <div class="booking-slots">
+                                <% slots.each do |slot| %>
+                                    <%# not available==booked %>
+                                    <div data-date="<%= slot.to_formatted_s(:short) %>">
+                                    <% if !room.check_availability time: slot, amount: 1 %>
+                                        <div class='booked-spot'>
+                                        </div>
+                                    <% end %>
+                                    </div>
+                                <% end %>
+                                </div>
+
+                            <% end %>
+                            <% end %>
+                        </div>
+                        <div
+                          class="tab-pane fade"
+                          :class="{ 'active show': isActive('year') }"
+                          id="year"
+                        >
+                            <%= render "/backstage/bookings/year/upcoming_months" %>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+            </tab_panel>
+
+        <img src="/images/sketch/calendar-month.png" alt="cal-navigation" style="width: 90%">
 
     </div>
-<!-- <h1>all bookings</h1>
-<ul class="room_bookings">
-<% @meeting_rooms.each do |room| %>
-    <div style="height: 5px; background-color: #EAEFF5"></div>
-        <li>room: room 1</li>
-            <ul class="bookings">
-                <% room.bookings.order(:time).each do |booking| %>
-                <li class="booking">
-                    Booker: <%= booking.booker.email %>&nbsp;||&nbsp;
-                    Name: <%= booking.booker.name.full %>&nbsp;||&nbsp;
-                    When: <%= booking.time %>
-
-                </li>
-                <% end %>
-            </ul>
-
-    <div style="height: 5px; background-color: #EAEFF5"></div>
-
-<% end %>
-
-</ul>
-<div style="height: 10px; background-color: #EAEFF5"></div>
-
-<% if current_user %>
-    <div class='container'>
-        <div class='row'>
-            <div class='col'>
-                <h3>Your bookings:</h3>
-                <% if current_user.bookings.any? %>
-                    <% current_user.bookings.sort_by{ |booking| booking.time }.each do |booking| %>
-                        <% if booking[:time]> (DateTime.now - 5.hours) %>
-                            <ul>
-                                <li>
-                                    <%= booking[:time].beginning_of_hour.to_formatted_s(:short) %>
-                                </li>
-                                <%= link_to 'Unbook' , meeting_room_delete_booking_path(meeting_room_id:
-                                    booking.bookable, time: booking.time.to_formatted_s(:short)) %>
-                            </ul>
-                        <% end %>
-                    <% end %>
-                <% else %>
-                    <p>You don't have any bookings yet.</p>
-                <% end %>
-            </div>
-            <div class='col'>
-                <h3>You may:</h3>
-                <ul>
-                    <li>only book two weeks in advance</li>
-                    <li>only have two time slots booked</li>
-                    <li>not smoke in the meeting room</li>
-                    <li>not leave the meeting room dirty</li>
-                </ul>
-            </div>
-            <div class='col'>
-                <%= image_tag('unicorn.png', align: 'middle' , height: 170, class: 'image' ) %>
-            </div>
-        </div>
-    </div>
-    <% @meeting_rooms.each do |room| %>
-        <%= month_calendar do |date| %>
-            <%= date.day %>
-
-        <% end %>
-    <% end %>
-<% else %>
-    <h1>It's Meeting Time! </h1>
-    <h2>Welcome to MeetingTime for Unicorn-Apartments</h2>
-    <div id='centered'>
-        <p>This is where the cleaning magic happens - book the meeting room online and
-            save precious dream
-            time!
-            <br> If you don't have an account, you can sign up with your email - and
-            soon enough your clothes
-            will
-            smell of fresh rainbows.
-            <br>Having problems with the site? Email our system admin at
-            unicorn_boss@rainbows.now
-        </p>
-    </div>
-    <%= image_tag('unicorn.png', align: 'middle' , height: 300, class: 'image' ) %>
-<% end %> -->
 
 </div>
 
 <% content_for :right do %>
-        <%= render "minical" %>
-    <img src="/images/sketch/calendar-next-meeting.png"
-        alt="bookings next meeting" style="width: 300px;">
-    <img src="/images/sketch/calendar-categories.png"
-        alt="booking categories" style="width: 300px;">
-<% end %>
+    <%= render "minical" %>
+        <img src="/images/sketch/calendar-next-meeting.png" alt="bookings next meeting" style="width: 300px;">
+        <img src="/images/sketch/calendar-categories.png" alt="booking categories" style="width: 300px;">
+        <% end %>

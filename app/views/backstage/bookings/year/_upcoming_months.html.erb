@@ -1,0 +1,17 @@
+  <div class="calendar-heading upcoming-year">
+    <span style="margin-right: auto;">&nbsp;</span>
+    <%= render 'time_nav' %>
+    <span style="margin-left: auto;">&nbsp;</span>
+
+    <%#= render '/simple_calendar/prev_today_next' , prev_today_next: calendar %>
+
+  </div>
+
+                            <div class="upcoming-months">
+                          <% @next_twelve_months.each do |month| %>
+                                <div class="month">
+                                    <%= link_to  month[0], backstage_bookings_path(start_date: month[1]) %>                                
+                                </div>
+                          <% end %>
+                            
+                            </div>

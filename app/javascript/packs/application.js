@@ -31,12 +31,16 @@ import "controllers"
 // vue.js
 import Vue from 'vue/dist/vue.esm'
 import TurbolinksAdapter from 'vue-turbolinks';
+
+// import components
 import App from '../app.vue'
+import TabPanel from '../tab_panel.vue'
 
 Vue.use(TurbolinksAdapter)
 
 // components
 Vue.component('app', App)
+Vue.component('tab_panel', TabPanel)
 
 // wrap CRUD pages in vue
 document.addEventListener('turbolinks:load', () => {

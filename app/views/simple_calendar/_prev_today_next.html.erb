@@ -1,0 +1,19 @@
+<ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <%= link_to t('simple_calendar.previous', default: '<'), 
+            prev_today_next.url_for_previous_view, 
+            class: "btn btn-primary" 
+        %>
+      </li> 
+      <li class="nav-item">
+        <%= link_to "Today", 
+            backstage_bookings_path, 
+            class: "btn btn-primary" 
+        %>
+      </li> 
+      <li class="nav-item">
+        <%= link_to t('simple_calendar.next', default: '>'), 
+            prev_today_next.url_for_next_view, 
+            class: "btn btn-primary" %>
+      </li>
+    </ul>
