@@ -276,6 +276,10 @@ aside {
 
 // simple_calendar styles
 .backstage, .bookings {
+  .nav-link {
+    color:orangered;
+  }
+
   .simple-calendar {
     a {
       color: currentColor;
@@ -374,6 +378,57 @@ aside {
     margin: 10px;
   }
 
+  .tab-panels {
+    min-height: 50vmin;
+    max-width: 50vw;
+  }
+
+  .time-nav {
+    width: 30%;
+    margin-left:auto;
+
+
+  }
+
+  .nav-pills {
+    .nav-link {
+    color: #42404e;
+    background: #f1effb;
+    border: 2px solid #f1effb;
+    }
+
+    a {
+      color: orangered;
+    }
+    a.active {
+      color: #f1effb;
+      background: #ffffff;
+    }
+
+    a.today {
+      color: #cacaca;
+    }
+
+  }
+
+  .nav-pills .btn {
+    color: #42404e;
+    background: #f1effb;
+    margin: 0px 5px 0px 5px;
+    border: 2px solid #f1effb;
+  }
+
+
+  .upcoming-months {
+    margin-top: 12px;
+  }
+
+  .calendar-table {
+    margin-top: 15px;
+  }
+  
+
+  
 }
 
   // calendar headings
@@ -391,6 +446,7 @@ aside {
       margin: auto auto auto 0;
       font-weight: bolder;
     }
+
   }
 
   // day calendar
@@ -418,3 +474,4 @@ aside {
 
 
 }
+

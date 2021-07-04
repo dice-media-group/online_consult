@@ -1,0 +1,29 @@
+<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+        <a
+        class="nav-link"
+        @click.prevent="setActive('home')"
+        :class="{ active: isActive('home') }"
+        href="#home"
+        >Week</a
+        >
+    </li>
+    <li class="nav-item">
+        <a
+        class="nav-link"
+        @click.prevent="setActive('month')"
+        :class="{ active: isActive('month') }"
+        href="#month"
+        >Month</a
+        >
+    </li>
+    <li class="nav-item">
+        <a
+        class="nav-link"
+        @click.prevent="setActive('year')"
+        :class="{ active: isActive('year') }"
+        href="#year"
+        >Year</a
+        >
+    </li>
+</ul>
